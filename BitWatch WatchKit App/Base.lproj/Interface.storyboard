@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Alternate Gothic No2 BT.ttf">
+            <string>AlternateGothicNo2BT-Regular</string>
+            <string>AlternateGothicNo2BT-Regular</string>
+            <string>AlternateGothicNo2BT-Regular</string>
+            <string>AlternateGothicNo2BT-Regular</string>
+            <string>AlternateGothicNo2BT-Regular</string>
+        </mutableArray>
+        <mutableArray key="HelveticaNeueLTStd-Bd.otf">
+            <string>HelveticaNeueLTStd-Bd</string>
+        </mutableArray>
+        <mutableArray key="HelveticaNeueLTStd-Lt.otf">
+            <string>HelveticaNeueLTStd-Lt</string>
+            <string>HelveticaNeueLTStd-Lt</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Home Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="BitWatch_WatchKit_Extension">
+                    <items>
+                        <label width="136" height="35.5" alignment="center" text="👌0.00" textAlignment="center" id="zWo-82-Zi8">
+                            <fontDescription key="font" name="AlternateGothicNo2BT-Regular" family="AlternateGothic2 BT" pointSize="47"/>
+                        </label>
+                        <group width="1" alignment="left" id="Mre-h2-G1c">
+                            <items>
+                                <imageView width="32" height="32" alignment="center" verticalAlignment="center" id="sPC-LS-tP9"/>
+                                <label alignment="center" verticalAlignment="center" text="1 BTC" id="9yj-8f-vTi">
+                                    <fontDescription key="font" name="AlternateGothicNo2BT-Regular" family="AlternateGothic2 BT" pointSize="20"/>
+                                </label>
+                            </items>
+                        </group>
+                        <table alignment="left" id="IQT-Dz-vm9">
+                            <items>
+                                <tableRow identifier="OrdinaryEventRow" id="G2X-e8-cp5" customClass="OrdinaryEventRow" customModule="BitWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" layout="vertical" id="4ea-Wa-xja">
+                                        <items>
+                                            <label alignment="left" text="Title" id="qb0-Jo-kkA">
+                                                <fontDescription key="font" name="AlternateGothicNo2BT-Regular" family="AlternateGothic2 BT" pointSize="12"/>
+                                            </label>
+                                            <label alignment="left" text="Subtitle" id="iFU-r2-ov3">
+                                                <fontDescription key="font" name="HelveticaNeueLTStd-Lt" family="Helvetica Neue LT Std" pointSize="10"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="timeLabel" destination="iFU-r2-ov3" id="Znh-C2-ViS"/>
+                                        <outlet property="titleLabel" destination="qb0-Jo-kkA" id="Mu5-Ei-fdm"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="ImportantEventRow" id="OXZ-oE-cha" customClass="ImportantEventRow" customModule="BitWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="10" id="BzY-d8-PAg">
+                                        <items>
+                                            <imageView width="0.40000000000000013" height="55" alignment="left" id="Nq0-il-0M6"/>
+                                            <group width="0.60000000000000009" alignment="left" layout="vertical" id="cWB-9P-S8D">
+                                                <items>
+                                                    <label alignment="left" text="Title" id="Rtx-i4-j11">
+                                                        <color key="textColor" red="0.95717531442642212" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="font" name="AlternateGothicNo2BT-Regular" family="AlternateGothic2 BT" pointSize="12"/>
+                                                    </label>
+                                                    <label alignment="left" text="Subtitle" id="Uip-Ml-ufY">
+                                                        <fontDescription key="font" name="HelveticaNeueLTStd-Lt" family="Helvetica Neue LT Std" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="eventImage" destination="Nq0-il-0M6" id="3Im-to-E5o"/>
+                                        <outlet property="timeLabel" destination="Uip-Ml-ufY" id="qes-c3-h4c"/>
+                                        <outlet property="titleLabel" destination="Rtx-i4-j11" id="Dem-gi-Jfi"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <label width="136" height="38.5" alignment="center" verticalAlignment="bottom" text="Last Updated" textAlignment="center" id="bOC-xE-cMV">
+                            <fontDescription key="font" name="AlternateGothicNo2BT-Regular" family="AlternateGothic2 BT" pointSize="13"/>
+                        </label>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Refresh" id="mcd-Ig-jsf">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="0.96113281250000004" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" name="HelveticaNeueLTStd-Bd" family="Helvetica Neue LT Std" pointSize="15"/>
+                            <connections>
+                                <action selector="refreshTapped" destination="AgC-eL-Hgc" id="dKT-mV-jc7"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="sPC-LS-tP9" id="TfJ-Ex-1kx"/>
+                        <outlet property="lastUpdatedLabel" destination="bOC-xE-cMV" id="fLs-iC-A4n"/>
+                        <outlet property="priceLabel" destination="zWo-82-Zi8" id="EeX-nQ-bmq"/>
+                        <outlet property="tableView" destination="IQT-Dz-vm9" id="vIN-V0-O08"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="440" y="341"/>
+        </scene>
+    </scenes>
+</document>
