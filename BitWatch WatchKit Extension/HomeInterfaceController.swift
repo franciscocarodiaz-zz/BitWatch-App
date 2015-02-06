@@ -15,7 +15,38 @@ class HomeInterfaceController: WKInterfaceController {
     let tracker = Tracker()
     var updating = false
     var _eventsData:[Event] = []
-
+    var theVideos = [YoutubeVideo]()
+    
+    // Image collection
+    @IBOutlet weak var mainImage: WKInterfaceImage!
+    @IBOutlet weak var mainTitle: WKInterfaceLabel!
+    var index : Int = 0
+    @IBAction func nextTapped() {
+        index++
+        self.loadImage()
+    }
+    
+    private func loadImage(){
+    
+        if (index >= theVideos.count){
+            self.index = 0
+        }
+        let videoYoutube = theVideos[index]
+            let url = NSURL(string: videoYoutube.thumbnail as String);
+            let picData = NSData(contentsOfURL: url!);
+            let img = UIImage(data: picData!);
+            
+            let mainTitle = theVideos[index].title as String
+            
+            self.updateMainInfo(mainTitle, _mainImage: img!)
+        
+        
+        
+        
+    
+    }
+    
+    
     @IBOutlet weak var tableView: WKInterfaceTable!
     @IBOutlet weak var image: WKInterfaceImage!
     @IBOutlet weak var lastUpdatedLabel: WKInterfaceLabel!
@@ -24,8 +55,10 @@ class HomeInterfaceController: WKInterfaceController {
         update()
     }
     
+    @IBOutlet weak var buttonRefresh: WKInterfaceButton!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        
         
         // Configure interface objects here.
         updatePrice(tracker.cachedPrice())
@@ -95,6 +128,12 @@ class HomeInterfaceController: WKInterfaceController {
         priceLabel.setText(Tracker.priceFormatter.stringFromNumber(price))
     }
     
+    private func updateMainInfo(_mainTitle: String, _mainImage: UIImage) {
+        mainTitle.setText(_mainTitle)
+        mainImage.setImage(_mainImage)
+        //buttonRefresh.setBackgroundImage(_mainImage)
+    }
+    
     private func update() {
         if !updating {
             updating = true
@@ -107,6 +146,24 @@ class HomeInterfaceController: WKInterfaceController {
                 }
                 self.updating = false
             }
+            
+            tracker.requestYoutube({ (array, title, image, error) -> () in
+                if error == nil{
+                    
+                    self.theVideos = array as [YoutubeVideo]
+                    for elem in self.theVideos{
+                        self.theVideos.append(elem)
+                    }
+                    self.index = 0
+                        let url = NSURL(string: image as String);
+                        let picData = NSData(contentsOfURL: url!);
+                        let img = UIImage(data: picData!);
+                    
+                    let mainTitle = title as String
+                    
+                    self.updateMainInfo(mainTitle, _mainImage: img!)
+                }
+            })
         }
     }
     

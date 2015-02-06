@@ -34,7 +34,14 @@ class PriceViewController: UIViewController {
         self.updateDate(NSDate())
         self.updateImage(originalPrice, newPrice: price!)
         self.updatePrice(price!)
-      }
+        
+        if let userDefaults = NSUserDefaults(suiteName: "group.arequawatchkitapp") {
+            userDefaults.setObject(price, forKey: "price")
+            userDefaults.synchronize()
+        }
+        
+        
+     }
     }
   }
   

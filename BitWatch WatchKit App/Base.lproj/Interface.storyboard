@@ -26,6 +26,16 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="BitWatch_WatchKit_Extension">
                     <items>
+                        <label alignment="left" text="Label" textAlignment="center" numberOfLines="0" id="FSt-LH-d0Z">
+                            <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                        </label>
+                        <imageView width="100" height="100" alignment="center" image="event2" id="Wp4-WG-fTm"/>
+                        <button width="1" alignment="left" title="Next video" id="biT-pW-eFU">
+                            <connections>
+                                <action selector="nextTapped" destination="AgC-eL-Hgc" id="BRV-zO-wNe"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="U0i-Rd-fRz"/>
                         <label width="136" height="35.5" alignment="center" text="👌0.00" textAlignment="center" id="zWo-82-Zi8">
                             <fontDescription key="font" name="AlternateGothicNo2BT-Regular" family="AlternateGothic2 BT" pointSize="47"/>
                         </label>
@@ -37,6 +47,7 @@
                                 </label>
                             </items>
                         </group>
+                        <separator alignment="left" id="z6h-eZ-1jb"/>
                         <table alignment="left" id="IQT-Dz-vm9">
                             <items>
                                 <tableRow identifier="OrdinaryEventRow" id="G2X-e8-cp5" customClass="OrdinaryEventRow" customModule="BitWatch_WatchKit_Extension">
@@ -93,8 +104,11 @@
                         </button>
                     </items>
                     <connections>
+                        <outlet property="buttonRefresh" destination="mcd-Ig-jsf" id="RGc-ff-sx5"/>
                         <outlet property="image" destination="sPC-LS-tP9" id="TfJ-Ex-1kx"/>
                         <outlet property="lastUpdatedLabel" destination="bOC-xE-cMV" id="fLs-iC-A4n"/>
+                        <outlet property="mainImage" destination="Wp4-WG-fTm" id="Qr0-vk-IUh"/>
+                        <outlet property="mainTitle" destination="FSt-LH-d0Z" id="wYV-8O-Xu5"/>
                         <outlet property="priceLabel" destination="zWo-82-Zi8" id="EeX-nQ-bmq"/>
                         <outlet property="tableView" destination="IQT-Dz-vm9" id="vIN-V0-O08"/>
                     </connections>
