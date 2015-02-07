@@ -122,7 +122,18 @@
             <objects>
                 <controller id="eM0-vv-KKn">
                     <items>
-                        <label alignment="left" text="Settings" id="ABS-0q-clQ"/>
+                        <group width="1" alignment="left" id="j8k-qp-L3s">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="Settings" numberOfLines="0" id="ABS-0q-clQ">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <button width="0.30000000000000016" height="1" alignment="right" verticalAlignment="center" backgroundImage="Up" id="a7Y-la-nwO">
+                                    <connections>
+                                        <segue destination="jxo-m5-MTN" kind="modal" id="qMH-fo-6nC"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                         <dateLabel alignment="left" id="ZXR-I9-sUN">
                             <dateFormatterStyle key="dateStyle" none="YES" short="YES"/>
                             <dateFormatterStyle key="timeStyle" none="YES" short="YES"/>
@@ -132,6 +143,19 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="616" y="200"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="mLV-f0-ytU">
+            <objects>
+                <controller id="jxo-m5-MTN">
+                    <items>
+                        <label alignment="left" text="Change settings" id="stL-4S-Vq1"/>
+                        <slider width="1" alignment="left" value="1" maximum="3" steps="3" id="h4z-gT-FaN"/>
+                        <switch width="1" alignment="left" value="YES" title="Switch" id="Cps-WD-17I"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="857" y="200"/>
         </scene>
     </scenes>
 </document>
