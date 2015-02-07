@@ -111,10 +111,27 @@
                         <outlet property="mainTitle" destination="FSt-LH-d0Z" id="wYV-8O-Xu5"/>
                         <outlet property="priceLabel" destination="zWo-82-Zi8" id="EeX-nQ-bmq"/>
                         <outlet property="tableView" destination="IQT-Dz-vm9" id="vIN-V0-O08"/>
+                        <segue destination="eM0-vv-KKn" kind="relationship" relationship="nextPage" id="pDF-uN-ADt"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="440" y="341"/>
+            <point key="canvasLocation" x="306" y="332"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="IWK-NL-2i5">
+            <objects>
+                <controller id="eM0-vv-KKn">
+                    <items>
+                        <label alignment="left" text="Settings" id="ABS-0q-clQ"/>
+                        <dateLabel alignment="left" id="ZXR-I9-sUN">
+                            <dateFormatterStyle key="dateStyle" none="YES" short="YES"/>
+                            <dateFormatterStyle key="timeStyle" none="YES" short="YES"/>
+                        </dateLabel>
+                        <map height="100" alignment="left" id="tTD-bo-18o"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="616" y="200"/>
         </scene>
     </scenes>
 </document>

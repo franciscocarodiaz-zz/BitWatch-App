@@ -15,7 +15,7 @@ class HomeInterfaceController: WKInterfaceController {
     let tracker = Tracker()
     var updating = false
     var _eventsData:[Event] = []
-    var theVideos = [YoutubeVideo]()
+    var theVideos:[YoutubeVideo] = []
     
     // Image collection
     @IBOutlet weak var mainImage: WKInterfaceImage!
@@ -149,11 +149,15 @@ class HomeInterfaceController: WKInterfaceController {
             
             tracker.requestYoutube({ (array, title, image, error) -> () in
                 if error == nil{
+                    /*
+                    var arrayVideos = [YoutubeVideo]()
                     
-                    self.theVideos = array as [YoutubeVideo]
-                    for elem in self.theVideos{
-                        self.theVideos.append(elem)
+                    for e in array as [YoutubeVideo] {
+                        let video = e
+                        arrayVideos.append(video)
                     }
+                    self.theVideos = arrayVideos
+                    */
                     self.index = 0
                         let url = NSURL(string: image as String);
                         let picData = NSData(contentsOfURL: url!);
