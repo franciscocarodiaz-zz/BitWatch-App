@@ -144,6 +144,42 @@
             </objects>
             <point key="canvasLocation" x="616" y="200"/>
         </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="mdP-lN-4XY">
+            <objects>
+                <glanceController topTemplateType="body1Group" bottomTemplateType="groupLargeBody2Footer" id="wdR-mq-t5J" customClass="GlanceController" customModule="BitWatch_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" id="nfy-Tf-JO1"/>
+                        <group alignment="left" id="KpV-iM-g7v"/>
+                        <group alignment="left" id="V6x-F3-VQf"/>
+                        <label alignment="left" text="1234" id="LhK-Li-M5t"/>
+                        <label alignment="left" text="Label∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙" id="LU4-VW-bg6"/>
+                        <label alignment="left" text="Footer" id="mEc-Pe-NZz"/>
+                    </items>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="628" y="449"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="teM-Sh-B1y">
+            <objects>
+                <notificationController id="Jyn-AN-1Yg">
+                    <items>
+                        <imageView width="1" alignment="center" image="event1" id="Y4I-st-lsh"/>
+                        <label alignment="center" text="Bitcoin price" numberOfLines="0" id="L1K-p5-oUL">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                        </label>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="Mz6-Tx-PQE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" id="dPK-YB-e8W"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="Mz6-Tx-PQE" id="fgb-gZ-fHv"/>
+                        <segue destination="09f-xs-6la" kind="relationship" relationship="dynamicNotificationInterface" id="WTj-g8-lBx"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="828" y="601.07116788321173"/>
+        </scene>
         <!--Interface Controller-->
         <scene sceneID="mLV-f0-ytU">
             <objects>
@@ -156,6 +192,23 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="857" y="200"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="SYX-zE-ydL">
+            <objects>
+                <controller id="09f-xs-6la" customClass="NotificationController" customModule="BitWatch_WatchKit_Extension">
+                    <items>
+                        <imageView width="1" alignment="center" image="event1" id="UMi-bt-dkR"/>
+                        <label alignment="center" text="Bitcoin price" numberOfLines="2" id="xin-0J-hpR">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="heading" destination="xin-0J-hpR" id="PlS-3e-fwj"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1108" y="602"/>
         </scene>
     </scenes>
 </document>

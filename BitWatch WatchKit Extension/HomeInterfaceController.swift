@@ -147,23 +147,38 @@ class HomeInterfaceController: WKInterfaceController {
                 self.updating = false
             }
             
-            tracker.requestYoutube({ (array, title, image, error) -> () in
+            tracker.requestYoutube({ (arrayOfObjects, title, image, error) -> () in
                 if error == nil{
-                    /*
-                    var arrayVideos = [YoutubeVideo]()
+                    arrayOfObjects
+                    let responseDictData = arrayOfObjects as NSDictionary!
                     
-                    for e in array as [YoutubeVideo] {
-                        let video = e
-                        arrayVideos.append(video)
+                    if let responseDictDataItems = responseDictData.valueForKey("items") as? NSArray {
+                        let video: AnyObject = ""
+                        self.theVideos = [YoutubeVideo]()
+                        for video in responseDictDataItems {
+                            
+                            let id = video["id"];
+                            let title = video["title"];
+                            let thumbnail = video.objectForKey("thumbnail") as? NSDictionary
+                            let hqDefault: AnyObject? = thumbnail?.objectForKey("hqDefault");
+                            
+                            let youtubeVideo = YoutubeVideo()
+                            youtubeVideo.id = id as String
+                            youtubeVideo.title = title as String
+                            youtubeVideo.thumbnail = hqDefault as String
+                            
+                            self.theVideos.append(youtubeVideo)
+                        }
+                        
                     }
-                    self.theVideos = arrayVideos
-                    */
+                    
+                    
                     self.index = 0
-                        let url = NSURL(string: image as String);
+                        let url = NSURL(string: self.theVideos[self.index].thumbnail as String);
                         let picData = NSData(contentsOfURL: url!);
                         let img = UIImage(data: picData!);
                     
-                    let mainTitle = title as String
+                    let mainTitle = self.theVideos[self.index].title as String
                     
                     self.updateMainInfo(mainTitle, _mainImage: img!)
                 }

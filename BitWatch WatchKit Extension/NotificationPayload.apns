@@ -1,15 +1,16 @@
 {
     "aps": {
+        "personName":"Francisco Caro",
         "alert": {
-            "body": "Test message",
-            "title": "Optional title"
+            "body": "Bitcoin price is down right now",
+            "title": "Last new from NY Times"
         },
         "category": "myCategory"
     },
     
     "WatchKit Simulator Actions": [
         {
-            "title": "First Button",
+            "title": "Upload",
             "identifier": "firstButtonAction"
         }
     ],

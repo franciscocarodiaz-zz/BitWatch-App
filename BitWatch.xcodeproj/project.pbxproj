@@ -13,7 +13,6 @@
 		3E28A22C1A80FF660021FC77 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28A22A1A80FF660021FC77 /* Interface.storyboard */; };
 		3E28A22E1A80FF660021FC77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E28A22D1A80FF660021FC77 /* Images.xcassets */; };
 		3E28A2311A80FF660021FC77 /* BitWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3E28A2191A80FF660021FC77 /* BitWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3E28A23C1A812DA30021FC77 /* BitWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B876BB31A1CA05900A76FAF /* BitWatchKit.framework */; };
 		3E28A23E1A8201DF0021FC77 /* OrdinaryEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28A23D1A8201DF0021FC77 /* OrdinaryEventRow.swift */; };
 		3E28A2401A8202200021FC77 /* ImportantEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28A23F1A8202200021FC77 /* ImportantEventRow.swift */; };
 		3E28A2451A8222200021FC77 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28A2441A8222200021FC77 /* Event.swift */; };
@@ -21,7 +20,8 @@
 		3E28A2491A834EA90021FC77 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28A2481A834EA90021FC77 /* YoutubeVideo.swift */; };
 		3E28A24A1A834FEA0021FC77 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28A2481A834EA90021FC77 /* YoutubeVideo.swift */; };
 		3E28A24C1A8355B20021FC77 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28A2481A834EA90021FC77 /* YoutubeVideo.swift */; };
-		3E977D521A83FAC300FD5969 /* YoutubeVideo.swift in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E28A2481A834EA90021FC77 /* YoutubeVideo.swift */; };
+		3E7C93041A889E7F0054AAFE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C93021A889E7F0054AAFE /* NotificationController.swift */; };
+		3E7C93051A889E7F0054AAFE /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C93031A889E7F0054AAFE /* GlanceController.swift */; };
 		7B876B6A1A1C9F2D00A76FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B876B691A1C9F2D00A76FAF /* AppDelegate.swift */; };
 		7B876B6F1A1C9F2D00A76FAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B876B6D1A1C9F2D00A76FAF /* Main.storyboard */; };
 		7B876B711A1C9F2D00A76FAF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B876B701A1C9F2D00A76FAF /* Images.xcassets */; };
@@ -99,6 +99,9 @@
 		3E28A2441A8222200021FC77 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3E28A2461A822EAE0021FC77 /* events.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = events.plist; sourceTree = "<group>"; };
 		3E28A2481A834EA90021FC77 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
+		3E7C93021A889E7F0054AAFE /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		3E7C93031A889E7F0054AAFE /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		3EE58B031A87785F00905256 /* NotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = NotificationPayload.apns; sourceTree = "<group>"; };
 		7B876B641A1C9F2D00A76FAF /* BitWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B876B681A1C9F2D00A76FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B876B691A1C9F2D00A76FAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E977D521A83FAC300FD5969 /* YoutubeVideo.swift in Frameworks */,
-				3E28A23C1A812DA30021FC77 /* BitWatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,10 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				3E28A21D1A80FF660021FC77 /* HomeInterfaceController.swift */,
+				3E7C93021A889E7F0054AAFE /* NotificationController.swift */,
+				3E7C93031A889E7F0054AAFE /* GlanceController.swift */,
 				3E28A21F1A80FF660021FC77 /* Images.xcassets */,
 				3E28A21B1A80FF660021FC77 /* Supporting Files */,
 				3E28A2411A8202400021FC77 /* EventRow */,
-				3E28A2461A822EAE0021FC77 /* events.plist */,
 			);
 			path = "BitWatch WatchKit Extension";
 			sourceTree = "<group>";
@@ -158,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				3E28A21C1A80FF660021FC77 /* Info.plist */,
+				3E28A2461A822EAE0021FC77 /* events.plist */,
+				3EE58B031A87785F00905256 /* NotificationPayload.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -447,9 +451,11 @@
 			files = (
 				3E28A24C1A8355B20021FC77 /* YoutubeVideo.swift in Sources */,
 				3E28A2451A8222200021FC77 /* Event.swift in Sources */,
+				3E7C93041A889E7F0054AAFE /* NotificationController.swift in Sources */,
 				3E28A2401A8202200021FC77 /* ImportantEventRow.swift in Sources */,
 				3E28A21E1A80FF660021FC77 /* HomeInterfaceController.swift in Sources */,
 				3E28A23E1A8201DF0021FC77 /* OrdinaryEventRow.swift in Sources */,
+				3E7C93051A889E7F0054AAFE /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

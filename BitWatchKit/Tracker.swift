@@ -9,7 +9,7 @@
 import Foundation
 
 public typealias PriceRequestCompletionBlock = (price: NSNumber?, error: NSError?) -> ()
-public typealias YoutubeRequestCompletionBlock = (array: AnyObject?, title: AnyObject?, image: AnyObject?, error: NSError?) -> ()
+public typealias YoutubeRequestCompletionBlock = (array: NSDictionary?, title: AnyObject?, image: AnyObject?, error: NSError?) -> ()
 
 public class Tracker {
   
@@ -68,7 +68,7 @@ public class Tracker {
       return price
     }
     return NSNumber(double: 0.00)
-  }
+    }
   
   public func requestPrice(completion: PriceRequestCompletionBlock) {
     let request = NSURLRequest(URL: NSURL(string: URL)!)
@@ -102,6 +102,21 @@ public class Tracker {
         let request = NSURLRequest(URL: NSURL(string: URL_YOUTUBE)!)
         let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             if error == nil {
+                
+                var JSONError: NSError?
+                let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &JSONError) as NSDictionary
+                if JSONError == nil {
+                    let responseDictData = responseDict.objectForKey("data") as? NSDictionary
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completion(array: responseDictData, title: nil, image: nil, error: nil)
+                    })
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completion(array: nil, title: nil,image: nil, error: JSONError)
+                    })
+                }
+                
+                /*
                 var JSONError: NSError?
                 let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &JSONError) as NSDictionary
                 if JSONError == nil {
@@ -110,6 +125,7 @@ public class Tracker {
                     if let responseDictData = responseDict.objectForKey("data") as? NSDictionary {
                         emptyArray = responseDictData.valueForKey("items") as? NSArray
                         let video: AnyObject = ""
+                        self.theVideos = [YoutubeVideo]()
                         for video in emptyArray {
                             
                             let id = video["id"];
@@ -125,6 +141,7 @@ public class Tracker {
                             self.theVideos.append(youtubeVideo)
                         }
                         
+                        self.defaults?.synchronize()
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             completion(array: self.theVideos, title: self.theVideos[0].title, image: self.theVideos[0].thumbnail, error: nil)
                         })
@@ -135,6 +152,7 @@ public class Tracker {
                         completion(array: nil, title: nil,image: nil, error: JSONError)
                     })
                 }
+                */
             } else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(array: nil, title: nil,image: nil, error: error)
