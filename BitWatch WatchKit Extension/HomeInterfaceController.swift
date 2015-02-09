@@ -21,6 +21,7 @@ class HomeInterfaceController: WKInterfaceController {
     @IBOutlet weak var mainImage: WKInterfaceImage!
     @IBOutlet weak var mainTitle: WKInterfaceLabel!
     var index : Int = 0
+    
     @IBAction func nextTapped() {
         index++
         self.loadImage()
@@ -59,6 +60,7 @@ class HomeInterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        addMenuItemWithItemIcon(.Share, title: "Share", action: Selector("shareButtonOnMenuTapped"))
         
         // Configure interface objects here.
         updatePrice(tracker.cachedPrice())
@@ -68,7 +70,20 @@ class HomeInterfaceController: WKInterfaceController {
         
         _eventsData = Event.eventsList()
     }
+    
+    func shareButtonOnMenuTapped(){
+        println("Share button tapped -> Send video info.")
+    }
 
+    @IBAction func playButtonOnMenuTapped() {
+        println("Play button tapped -> Play video.")
+    }
+    @IBAction func pauseButtonOnMenuTapped() {
+        println("Pause button tapped -> Pause video.")
+    }
+    @IBAction func resumeButtonOnMenuTapped() {
+        println("Resume button tapped -> Resume video.")
+    }
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()

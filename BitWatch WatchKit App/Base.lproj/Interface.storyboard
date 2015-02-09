@@ -103,6 +103,25 @@
                             </connections>
                         </button>
                     </items>
+                    <menu key="menu" id="2UB-Ie-myO">
+                        <items>
+                            <menuItem title="Play" icon="play" id="o8D-Rh-J5E">
+                                <connections>
+                                    <action selector="playButtonOnMenuTapped" destination="AgC-eL-Hgc" id="nuZ-Py-bTf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Pause" icon="pause" id="viS-2b-r4x">
+                                <connections>
+                                    <action selector="pauseButtonOnMenuTapped" destination="AgC-eL-Hgc" id="bYD-zq-d5l"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Resume" icon="resume" id="b0G-qh-LyF">
+                                <connections>
+                                    <action selector="resumeButtonOnMenuTapped" destination="AgC-eL-Hgc" id="yzy-hw-NdP"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="buttonRefresh" destination="mcd-Ig-jsf" id="RGc-ff-sx5"/>
                         <outlet property="image" destination="sPC-LS-tP9" id="TfJ-Ex-1kx"/>
